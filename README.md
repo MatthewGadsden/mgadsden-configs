@@ -2,6 +2,8 @@
   ⚒ mgadsden-configs
 </h1>
 
-## Git Bash Profile
+## Screenshots
+
+#### Git Bash Profile
 
 ![Bash Terminal](./screenshots/git_bash.png)

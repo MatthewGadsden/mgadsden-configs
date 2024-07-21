@@ -6,7 +6,7 @@ function print_insert() {
     else
     local insert=$(git diff --stat | grep -oP '\d+(?= insertion)')
     local staged_insert=$(git diff --cached --stat | grep -oP '\d+(?= insertion)')
-    printf -- " + $insert($staged_insert) "
+    printf -- "+$insert($staged_insert) "
     fi
 }
 
@@ -16,7 +16,7 @@ function print_del() {
     else
     local del=$(git diff --stat | grep -oP '\d+(?= deletion)')
     local staged_del=$(git diff --cached --stat | grep -oP '\d+(?= deletion)')
-    printf -- " - $del($staged_del) "
+    printf -- "-$del($staged_del) "
     fi
 }
 
@@ -37,6 +37,17 @@ function print_space() {
     then return
     else
     printf -- " "
+    fi
+}
+
+function node_prompt_version() {
+    if which node &> /dev/null; then
+        local nodev=$(node.exe -v)
+        printf -- "[";
+        printf -- "\\033[38;5;78m";
+        printf -- "$nodev";
+        printf -- "\\033[0m";
+        printf -- "]";
     fi
 }
 
@@ -62,16 +73,17 @@ then
     fi
 fi
 PS1="$PS1"'`print_space`'
-PS1="$PS1"'\[\033[\e[38;5;0m\e[48;5;231m\]'
-PS1="$PS1"'`print_files`'
-PS1="$PS1"'\[\033[\e[38;5;0m\e[48;5;155m\]'
-PS1="$PS1"'`print_insert`'
-PS1="$PS1"'\[\033[\e[38;5;0m\e[48;5;167m\]'
-PS1="$PS1"'`print_del`'
-PS1="$PS1"'\[\033[0m\]'        # change color
-PS1="$PS1"'\n'                 # new line
-PS1="$PS1"'>> '                 # prompt: always $
-
+PS1="$PS1"'\[\033[0m\]'                 # default colour
+PS1="$PS1"'\[\033[\e[38;5;231m\]'       # white text
+PS1="$PS1"'`print_files`'               # no. files changed
+PS1="$PS1"'\[\033[\e[38;5;155m\]'       # green text
+PS1="$PS1"'`print_insert`'              # git adds
+PS1="$PS1"'\[\033[\e[38;5;167m\]'       # red text
+PS1="$PS1"'`print_del`'                 # git removed
+PS1="$PS1"'\[\033[0m\]'                 # default colour
+PS1="$PS1"'`node_prompt_version`'       # node version
+PS1="$PS1"'\n'                          # new line
+PS1="$PS1"'>> '                         # prompt: always >>
 
 # Git status options
 # Shows * or + for unstaged and staged changes, respectively.

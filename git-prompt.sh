@@ -42,10 +42,10 @@ function print_space() {
 
 function node_prompt_version() {
     if which node &> /dev/null; then
-        local nodev=$(node.exe -v)
+        local NODE_V=$(node.exe -v)
         printf -- "[";
         printf -- "\\033[38;5;78m";
-        printf -- "$nodev";
+        printf -- "\u2B22 ${NODE_V//v}";
         printf -- "\\033[0m";
         printf -- "]";
     fi

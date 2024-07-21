@@ -4,8 +4,8 @@ function print_insert() {
     git check-ignore -q . 2>/dev/null; if [ "$?" -ne "1" ];
     then return
     else
-    local insert=$(git diff --stat | grep -oP '\d+(?= insertion)')
-    local staged_insert=$(git diff --cached --stat | grep -oP '\d+(?= insertion)')
+    local insert=$(git diff --stat 2>/dev/null | grep -oP '\d+(?= insertion)')
+    local staged_insert=$(git diff --cached --stat 2>/dev/null | grep -oP '\d+(?= insertion)')
     printf -- "+$insert($staged_insert) "
     fi
 }
@@ -14,8 +14,8 @@ function print_del() {
     git check-ignore -q . 2>/dev/null; if [ "$?" -ne "1" ];
     then return
     else
-    local del=$(git diff --stat | grep -oP '\d+(?= deletion)')
-    local staged_del=$(git diff --cached --stat | grep -oP '\d+(?= deletion)')
+    local del=$(git diff --stat 2>/dev/null | grep -oP '\d+(?= deletion)')
+    local staged_del=$(git diff --cached --stat 2>/dev/null | grep -oP '\d+(?= deletion)')
     printf -- "-$del($staged_del) "
     fi
 }
@@ -24,10 +24,10 @@ function print_files() {
     git check-ignore -q . 2>/dev/null; if [ "$?" -ne "1" ];
     then return
     else
-    local file=$(git diff --stat | grep -oP '\d+(?= file change)')
-    local files=$(git diff --stat | grep -oP '\d+(?= files change)')
-    local stages_file=$(git diff --cached --stat | grep -oP '\d+(?= file change)')
-    local stages_files=$(git diff --cached --stat | grep -oP '\d+(?= files change)')
+    local file=$(git diff --stat 2>/dev/null | grep -oP '\d+(?= file change)')
+    local files=$(git diff --stat 2>/dev/null | grep -oP '\d+(?= files change)')
+    local stages_file=$(git diff --cached --stat 2>/dev/null | grep -oP '\d+(?= file change)')
+    local stages_files=$(git diff --cached --stat 2>/dev/null | grep -oP '\d+(?= files change)')
     printf -- " 📑 $file$files($stages_file$stages_files) "
     fi
 }
@@ -60,7 +60,7 @@ PS1="$PS1"'\[\033[\e[38;5;0m\e[48;5;221m\] \u '          # black text, green, us
 PS1="$PS1"'\[\033[\e[38;5;0m\e[48;5;231m\] \w '          # black text, yellow, working director
 if test -z "$WINELOADERNOEXEC"
 then
-    GIT_EXEC_PATH="$(git --exec-path 2>/dev/null)"
+    GIT_EXEC_PATH="$(git config --global core.autocrlf false | git --exec-path 2>/dev/null | git config --global core.autocrlf true)"
     COMPLETION_PATH="${GIT_EXEC_PATH%/libexec/git-core}"
     COMPLETION_PATH="${COMPLETION_PATH%/lib/git-core}"
     COMPLETION_PATH="$COMPLETION_PATH/share/git/completion"
@@ -84,6 +84,7 @@ PS1="$PS1"'\[\033[0m\]'                 # default colour
 PS1="$PS1"'`node_prompt_version`'       # node version
 PS1="$PS1"'\n'                          # new line
 PS1="$PS1"'>> '                         # prompt: always >>
+$(git config --global core.autocrlf true);
 
 # Git status options
 # Shows * or + for unstaged and staged changes, respectively.

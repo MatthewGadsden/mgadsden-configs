@@ -60,7 +60,7 @@ PS1="$PS1"'\[\033[\e[38;5;0m\e[48;5;221m\] \u '          # black text, green, us
 PS1="$PS1"'\[\033[\e[38;5;0m\e[48;5;231m\] \w '          # black text, yellow, working director
 if test -z "$WINELOADERNOEXEC"
 then
-    GIT_EXEC_PATH="$(git config --global core.autocrlf false | git --exec-path 2>/dev/null | git config --global core.autocrlf true)"
+    GIT_EXEC_PATH="$(git --exec-path 2>/dev/null)"
     COMPLETION_PATH="${GIT_EXEC_PATH%/libexec/git-core}"
     COMPLETION_PATH="${COMPLETION_PATH%/lib/git-core}"
     COMPLETION_PATH="$COMPLETION_PATH/share/git/completion"

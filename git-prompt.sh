@@ -4,8 +4,8 @@ function print_insert() {
     git check-ignore -q . 2>/dev/null; if [ "$?" -ne "1" ];
     then return
     else
-    local insert=$(git diff --stat 2>/dev/null | grep -oP '\d+(?= insertion)')
-    local staged_insert=$(git diff --cached --stat 2>/dev/null | grep -oP '\d+(?= insertion)')
+    local insert=$(git diff --stat 2>/dev/null | grep -oP '\d+(?= insertion)' 2>/dev/null)
+    local staged_insert=$(git diff --cached --stat 2>/dev/null | grep -oP '\d+(?= insertion)' 2>/dev/null)
     printf -- "+$insert($staged_insert) "
     fi
 }
@@ -14,8 +14,8 @@ function print_del() {
     git check-ignore -q . 2>/dev/null; if [ "$?" -ne "1" ];
     then return
     else
-    local del=$(git diff --stat 2>/dev/null | grep -oP '\d+(?= deletion)')
-    local staged_del=$(git diff --cached --stat 2>/dev/null | grep -oP '\d+(?= deletion)')
+    local del=$(git diff --stat 2>/dev/null | grep -oP '\d+(?= deletion)' 2>/dev/null)
+    local staged_del=$(git diff --cached --stat 2>/dev/null | grep -oP '\d+(?= deletion)' 2>/dev/null)
     printf -- "-$del($staged_del) "
     fi
 }
@@ -24,10 +24,10 @@ function print_files() {
     git check-ignore -q . 2>/dev/null; if [ "$?" -ne "1" ];
     then return
     else
-    local file=$(git diff --stat 2>/dev/null | grep -oP '\d+(?= file change)')
-    local files=$(git diff --stat 2>/dev/null | grep -oP '\d+(?= files change)')
-    local stages_file=$(git diff --cached --stat 2>/dev/null | grep -oP '\d+(?= file change)')
-    local stages_files=$(git diff --cached --stat 2>/dev/null | grep -oP '\d+(?= files change)')
+    local file=$(git diff --stat 2>/dev/null | grep -oP '\d+(?= file change)' 2>/dev/null)
+    local files=$(git diff --stat 2>/dev/null | grep -oP '\d+(?= files change)' 2>/dev/null)
+    local stages_file=$(git diff --cached --stat 2>/dev/null | grep -oP '\d+(?= file change)' 2>/dev/null)
+    local stages_files=$(git diff --cached --stat 2>/dev/null | grep -oP '\d+(?= files change)' 2>/dev/null)
     printf -- " 📑 $file$files($stages_file$stages_files) "
     fi
 }
@@ -45,7 +45,7 @@ function node_prompt_version() {
         local NODE_V=$(node.exe -v)
         printf -- "[";
         printf -- "\\033[38;5;78m";
-        printf -- "\u2B22 ${NODE_V//v}";
+        printf -- "⬢ ${NODE_V//v}";
         printf -- "\\033[0m";
         printf -- "]";
     fi

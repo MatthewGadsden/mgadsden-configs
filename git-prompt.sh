@@ -44,9 +44,9 @@ function node_prompt_version() {
     if which node &> /dev/null; then
         local NODE_V=$(node.exe -v)
         printf -- "[";
-        printf -- "\\033[38;5;78m";
+        printf -- "\\033[38;5;78m";     # spring green fg
         printf -- "⬢ ${NODE_V//v}";
-        printf -- "\\033[0m";
+        printf -- "\\033[0m";           # default theme
         printf -- "]";
     fi
 }
@@ -54,10 +54,10 @@ function node_prompt_version() {
 PROMPT_DIRTRIM=4                         # Shorten deep paths in the prompt
 PS1='\[\033]0;Git | Bash v\v | \W\007\]' # set window title
 PS1="$PS1"'\n'                           # new line
-PS1="$PS1"'\[\033[\e[38;5;0m\e[48;5;209m\] [\A] '        # black text, magenta, 24h time
-PS1="$PS1"'\[\033[\e[38;5;0m\e[48;5;221m\] \u '          # black text, green, user
-#PS1="$PS1"'\[\033[97;42m\]@\h '          # black text, green, @host
-PS1="$PS1"'\[\033[\e[38;5;0m\e[48;5;231m\] \w '          # black text, yellow, working director
+PS1="$PS1"'\[\033[\e[38;5;0m\e[48;5;209m\] [\A] '        # black fg, orange bg, 24h time
+PS1="$PS1"'\[\033[\e[38;5;0m\e[48;5;221m\] \u '          # black fg, yellow bg, user
+#PS1="$PS1"'\[\033[97;42m\]@\h '                         # black fg, white bg, @host
+PS1="$PS1"'\[\033[\e[38;5;0m\e[48;5;231m\] \w '          # black fg, white bg, working director
 if test -z "$WINELOADERNOEXEC"
 then
     GIT_EXEC_PATH="$(git --exec-path 2>/dev/null)"
@@ -68,17 +68,17 @@ then
     then
         . "$COMPLETION_PATH/git-completion.bash"
         . "$COMPLETION_PATH/git-prompt.sh"
-        PS1="$PS1"'\[\033[38;5;231;48;5;132m\]'     # white text, cyan
+        PS1="$PS1"'\[\033[38;5;231;48;5;132m\]'     # white fg, maroon bg, git
         PS1="$PS1"'`__git_ps1`'                     # bash function
     fi
 fi
 PS1="$PS1"'`print_space`'
 PS1="$PS1"'\[\033[0m\]'                 # default colour
-PS1="$PS1"'\[\033[\e[38;5;231m\]'       # white text
+PS1="$PS1"'\[\033[\e[38;5;231m\]'       # white fg
 PS1="$PS1"'`print_files`'               # no. files changed
-PS1="$PS1"'\[\033[\e[38;5;155m\]'       # green text
+PS1="$PS1"'\[\033[\e[38;5;155m\]'       # green fg
 PS1="$PS1"'`print_insert`'              # git adds
-PS1="$PS1"'\[\033[\e[38;5;167m\]'       # red text
+PS1="$PS1"'\[\033[\e[38;5;167m\]'       # red fg
 PS1="$PS1"'`print_del`'                 # git removed
 PS1="$PS1"'\[\033[0m\]'                 # default colour
 PS1="$PS1"'`node_prompt_version`'       # node version

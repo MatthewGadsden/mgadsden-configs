@@ -6,3 +6,6 @@
 
 #### Git Bash Profile
 ![Bash Terminal](./screenshots/git_bash.png)
+
+#### Oh-My-Posh Profile
+![OMP Terminal](./screenshots/omp_profile.png)

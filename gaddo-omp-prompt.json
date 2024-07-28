@@ -67,7 +67,8 @@
 					"foreground": "p:white",
 					"powerline_symbol": "\ue0b0",
 					"properties": {
-						"style": "folder"
+						"style": "agnoster_short",
+						"max_depth": 3
 					},
 					"style": "powerline",
 					"template": " {{ .Path }} ",

@@ -3,12 +3,14 @@
 </h1>
 
 ## Screenshots
-<h4 align="center">
+<h3 align="center">
 	Git Bash Profile
-</h4>
+</h3>
+
 ![Bash Terminal](./screenshots/git_bash.png)
 
-<h4 align="center">
+<h3 align="center">
 	Oh-My-Posh Profile
-</h4>
-![OMP Terminal](./screenshots/omp_profile.png)
+</h3>
+
+![OMP Terminal](./screenshots/omp_profile.png)]

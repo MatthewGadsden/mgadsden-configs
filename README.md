@@ -1,11 +1,14 @@
 <h1 align="center">
-  ⚒ mgadsden-configs
+	⚒ mgadsden-configs
 </h1>
 
 ## Screenshots
-
-#### Git Bash Profile
+<h4 align="center">
+	Git Bash Profile
+</h4>
 ![Bash Terminal](./screenshots/git_bash.png)
 
-#### Oh-My-Posh Profile
+<h4 align="center">
+	Oh-My-Posh Profile
+</h4>
 ![OMP Terminal](./screenshots/omp_profile.png)

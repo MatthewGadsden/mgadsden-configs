@@ -63,6 +63,17 @@
 					"type": "session"
 				},
 				{
+					"type": "node",
+					"foreground": "#000",
+					"background": "#7cd78c",
+					"properties": {
+						"display_mode": "always"
+					},
+					"powerline_symbol": "\ue0b0",
+					"style": "powerline",
+					"template": " <sb>\ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}</sb> "
+				},
+				{
 					"background": "p:blush",
 					"foreground": "p:white",
 					"powerline_symbol": "\ue0b0",
@@ -87,17 +98,6 @@
 					"style": "powerline",
 					"template": " \u279c ({{ .UpstreamIcon }}{{ .HEAD }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }}) ",
 					"type": "git"
-				},
-				{
-					"type": "node",
-					"foreground": "#000",
-					"background": "#7cd78c",
-					"properties": {
-						"display_mode": "always"
-					},
-					"powerline_symbol": "\ue0b0",
-					"style": "powerline",
-					"template": " <sb>\ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}</sb> "
 				}
 			],
 			"type": "prompt"

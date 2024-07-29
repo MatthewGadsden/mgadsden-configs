@@ -13,4 +13,4 @@
 	Oh-My-Posh Profile
 </h3>
 
-![OMP Terminal](./screenshots/omp_profile.png)]
+![OMP Terminal](./screenshots/omp_profile.png)

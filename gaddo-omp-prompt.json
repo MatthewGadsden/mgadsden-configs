@@ -59,17 +59,17 @@
 					"template": " {{ .UserName }} ",
 					"type": "session"
 				},
-				{
-					"type": "node",
-					"foreground": "#000",
-					"background": "#7cd78c",
-					"properties": {
-						"display_mode": "always"
-					},
-					"powerline_symbol": "\ue0b0",
-					"style": "powerline",
-					"template": " <sb>\ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}</sb> "
-				},
+				// {
+				// 	"type": "node",
+				// 	"foreground": "#000",
+				// 	"background": "#7cd78c",
+				// 	"properties": {
+				// 		"display_mode": "always"
+				// 	},
+				// 	"powerline_symbol": "\ue0b0",
+				// 	"style": "powerline",
+				// 	"template": " <sb>\ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}</sb> "
+				// },
 				{
 					"background": "p:blush",
 					"foreground": "p:white",
@@ -103,26 +103,47 @@
 			"alignment": "right",
 			"segments": [
 				{
-					"background": "#29315A",
 					"foreground": "#ffffff",
+					"background": "#333333",
 					"leading_diamond": "\ue0c5",
 					"properties": {
 						"style": "dallas",
 						"threshold": 0
 					},
 					"style": "diamond",
-					"template": "\ueba2 {{ .FormattedMs }}s ",
+					"template": " \ueba2 {{ .FormattedMs }}s ",
 					"type": "executiontime"
 				},
 				{
-					"background": "#29315A",
-					"foreground": "#3EC669",
+					"foreground": "#ffffff",
+					"background": "#333333",
 					"properties": {
-						"time_format": "15:04:05 | Monday"
+						"time_format": "15:04:05"
 					},
 					"style": "plain",
 					"template": "<transparent> \ue0ba\ue0bc </>{{ .CurrentDate | date .Format }} ",
 					"type": "time"
+				},
+				{
+					"foreground": "#fff",
+					"background": "#333333",
+					"properties": {
+						"time_format": "Monday"
+					},
+					"style": "plain",
+					"template": "<#cc7eda>\u007C</> {{ .CurrentDate | date .Format }}",
+					"type": "time"
+				},
+				{
+					"foreground": "#3EC669",
+					"background": "#333333",
+					"properties": {
+						"fetch_version": true,
+						"display_mode": "always"
+					},
+					"style": "powerline",
+					"template": "<#cc7eda> \u007C </><#7eb8da>\ue718</> {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} ",
+					"type": "node"
 				}
 			],
 			"type": "prompt"

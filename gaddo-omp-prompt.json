@@ -5,10 +5,10 @@
 		"tan": "#CC3802",
 		"teal": "#047E84",
 		"plum": "#9A348E",
-		"blush": "#DA627D",
-		"salmon": "#FCA17D",
+		"butter": "#ffd659",
+		"purplecherry": "#b45d89",
 		"sky": "#86BBD8",
-		"teal_blue": "#33658A"
+		"peachy": "#ff855b"
 	},
 	"blocks": [
 		{
@@ -45,16 +45,16 @@
 			"alignment": "left",
 			"segments": [
 				{
-					"background": "p:teal_blue",
-					"foreground": "p:white",
+					"background": "p:peachy",
+					"foreground": "#000",
 					"style": "diamond",
 					"template": " \uedd9 ",
 					"trailing_diamond": "\ue0b0",
 					"type": "text"
 				},
 				{
-					"background": "p:plum",
-					"foreground": "p:white",
+					"background": "p:butter",
+					"foreground": "#000",
 					"style": "diamond",
 					"template": " {{ .UserName }} ",
 					"type": "session"
@@ -71,8 +71,8 @@
 				// 	"template": " <sb>\ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}</sb> "
 				// },
 				{
-					"background": "p:blush",
-					"foreground": "p:white",
+					"background": "p:white",
+					"foreground": "#000",
 					"powerline_symbol": "\ue0b0",
 					"properties": {
 						"style": "agnoster_short",
@@ -83,7 +83,7 @@
 					"type": "path"
 				},
 				{
-					"background": "p:salmon",
+					"background": "p:purplecherry",
 					"foreground": "p:white",
 					"powerline_symbol": "\ue0b0",
 					"properties": {

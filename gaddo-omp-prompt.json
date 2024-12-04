@@ -89,11 +89,11 @@
 					"properties": {
 						"branch_icon": "",
 						"fetch_stash_count": true,
-						"fetch_status": false,
+						"fetch_status": true,
 						"fetch_upstream_icon": true
 					},
 					"style": "powerline",
-					"template": " \u279c ({{ .UpstreamIcon }}{{ .HEAD }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }}) ",
+					"template": " {{ .UpstreamIcon }}[\uf126 {{ .HEAD }}] {{.BranchStatus}} {{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }}",
 					"type": "git"
 				}
 			],

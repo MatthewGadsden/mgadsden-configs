@@ -107,7 +107,6 @@
 				{
 					"foreground": "#ffffff",
 					"background": "#333333",
-					"leading_diamond": "\ue0c5",
 					"properties": {
 						"style": "dallas",
 						"threshold": 0

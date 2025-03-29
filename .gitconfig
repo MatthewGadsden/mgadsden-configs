@@ -1,0 +1,9 @@
+[user]
+	email = matthewjgadsden@gmail.com
+	name = MatthewGadsden
+[alias]
+	st = status
+	# create-branch
+	cb = checkout -b
+[push]
+	autoSetupRemote = true

@@ -3,7 +3,7 @@
 	name = MatthewGadsden
 [alias]
 	st = status
-	# push-create-upstream (pushes currently checked out branch to upstream)
-	pc = ! git rev-parse --abbrev-ref HEAD | git push -u origin
 	# create-branch
 	cb = checkout -b
+[push]
+	autoSetupRemote = true

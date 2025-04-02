@@ -6,11 +6,13 @@
 <h3 align="center">
 	Git Bash Profile
 </h3>
-
-![Bash Terminal](./screenshots/git_bash.png)
+<div align="center">
+	<img align="center" alt="Bash Terminal Screenshot" src="./screenshots/git_bash.png" width="700">
+</div>
 
 <h3 align="center">
 	Oh-My-Posh Profile
 </h3>
-
-![OMP Terminal](./screenshots/omp_profile.png)
+<div align="center">
+	<img alt="OMP Terminal Screenshot" src="./screenshots/omp_profile.png" width="700">
+</div>

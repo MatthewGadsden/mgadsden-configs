@@ -51,16 +51,6 @@ A startup banner for bash: pixel art on the left, system info (OS, kernel, uptim
 <details>
 <summary>Other art styles</summary>
 
-<h4 align="center">akame-color.ans</h4>
-<div align="center">
-	<img alt="Full-colour Akame greeting" src="./screenshots/greeting_akame_color.png" width="700">
-</div>
-
-<h4 align="center">akame-outline.ans</h4>
-<div align="center">
-	<img alt="Line-art Akame greeting" src="./screenshots/greeting_akame_outline.png" width="700">
-</div>
-
 <h4 align="center">sloth.ans</h4>
 <div align="center">
 	<img alt="Sloth greeting" src="./screenshots/greeting_sloth.png" width="700">
